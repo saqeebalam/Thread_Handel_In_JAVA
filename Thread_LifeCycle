@@ -1,0 +1,23 @@
+
+public class Thread_LifeCycle extends Thread{
+	public static void main(String[] args) {
+		Thread_LifeCycle obj=new Thread_LifeCycle();
+		System.out.println(obj.getState());//thread status before starting
+		obj.start();//threat started
+		synchronized (obj) {
+			try {
+				System.out.println("Wait");
+				Thread.sleep(5000); //main thread wait 5000 miliSecond
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			System.out.println(obj.getState());//thread end status
+			
+		}
+		
+	}
+	public void run() {
+		System.out.println("Thread method");
+	}
+
+}
